@@ -1,4 +1,4 @@
-package com.automation.RSA;
+package com.automation.Tests;
 
 import com.automation.Data.JsonData;
 import com.automation.ReusableMethods.RawToJSON;
