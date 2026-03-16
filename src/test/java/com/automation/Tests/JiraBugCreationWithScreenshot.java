@@ -26,7 +26,8 @@ public class JiraBugCreationWithScreenshot {
                         "   }\n" +
                         "}\n")
                 .when().post("rest/api/3/issue")
-                .then().log().all().assertThat().statusCode(201).extract().response().asString();
+                .then().log().all().assertThat()
+                .statusCode(201).extract().response().asString();
         JsonPath path = RawToJSON.getRawDataToJSON(bugCreatedResponse);
         String id = path.getString("id");
 

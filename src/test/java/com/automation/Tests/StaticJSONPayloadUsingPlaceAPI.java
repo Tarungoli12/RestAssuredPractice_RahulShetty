@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.*;
 public class StaticJSONPayloadUsingPlaceAPI {
 
     @Test
-    public void addPlaceStatic() throws IOException {
+    public void addPlaceUsingStaticJson() throws IOException {
         RestAssured.baseURI="https://rahulshettyacademy.com";
         String addBookResponse = given().log().all()
                 .queryParam("key", "qaclick123")

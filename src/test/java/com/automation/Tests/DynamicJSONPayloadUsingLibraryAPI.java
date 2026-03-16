@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 public class DynamicJSONPayloadUsingLibraryAPI {
 
     @Test(dataProvider = "getBooksData")
-    public void addBook(String isbn,String aisle){
+    public void addBookUsingDynamicJson(String isbn,String aisle){
         RestAssured.baseURI="http://216.10.245.166";
         String addBookResponse = given().header("Content-Type","application/json")
                 .body(JsonData.addBookJsonData(isbn,aisle))
