@@ -51,10 +51,10 @@ public class CRUD_Operations_Place {
         given().queryParam("key", "qaclick123")
                 .header("Content-Type", "application/json")
                 .body("{\n" +
-                        "    \"place_id\":\""+placeId+"\"\n" +
+                        "    \"place_id\":\"" + placeId + "\"\n" +
                         "}")
                 .when().delete("maps/api/place/delete/json")
                 .then().log().all().assertThat().
-                statusCode(200).body("status",equalTo("OK"));
+                statusCode(200).body("status", equalTo("OK"));
     }
 }

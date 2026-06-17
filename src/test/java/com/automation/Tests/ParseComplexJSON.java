@@ -24,28 +24,28 @@ public class ParseComplexJSON {
         System.out.println(firstCourseTitle);
 
         //print the course title and prices of all courses
-        for(int i = 0; i< courseSize; i++){
-            System.out.println(jsonPath.get("courses["+i+"].title").toString()
-              + jsonPath.get("courses["+i+"].price").toString());
+        for (int i = 0; i < courseSize; i++) {
+            System.out.println(jsonPath.get("courses[" + i + "].title").toString()
+                    + jsonPath.get("courses[" + i + "].price").toString());
         }
 
-        //print the no of copies sold for a RPA course
-        for(int i = 0; i< courseSize; i++){
-            String courseName = jsonPath.get("courses["+i+"].title");
-            if(courseName.equalsIgnoreCase("RPA")){
-                System.out.println(jsonPath.get("courses["+i+"].copies").toString());
+        //print the no of copies sold for an RPA course
+        for (int i = 0; i < courseSize; i++) {
+            String courseName = jsonPath.get("courses[" + i + "].title");
+            if (courseName.equalsIgnoreCase("RPA")) {
+                System.out.println(jsonPath.get("courses[" + i + "].copies").toString());
                 break;
             }
         }
 
         //verify if sum of all course prices matches with purchase amount
         int totalAmount = 0;
-        for(int i = 0; i< courseSize; i++){
-            int price = jsonPath.getInt("courses["+i+"].price");
-            int copies = jsonPath.getInt("courses["+i+"].copies");
-            totalAmount += price*copies;
+        for (int i = 0; i < courseSize; i++) {
+            int price = jsonPath.getInt("courses[" + i + "].price");
+            int copies = jsonPath.getInt("courses[" + i + "].copies");
+            totalAmount += price * copies;
         }
         System.out.println(totalAmount);
-        Assert.assertEquals(purchaseAmount,totalAmount);
+        Assert.assertEquals(purchaseAmount, totalAmount);
     }
 }

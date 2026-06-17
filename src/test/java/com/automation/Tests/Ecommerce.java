@@ -5,6 +5,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +88,6 @@ public class Ecommerce {
         ResponseGetOrderDetails responseGetOrderDetails = getOrderRequest.when().get("api/ecom/order/get-orders-details").
                 then().log().all().extract().as(ResponseGetOrderDetails.class);
         System.out.println(responseGetOrderDetails.getData().getProductName());
-
 
         //delete product
         RequestSpecification deleteProductRequestSpecification = new RequestSpecBuilder().

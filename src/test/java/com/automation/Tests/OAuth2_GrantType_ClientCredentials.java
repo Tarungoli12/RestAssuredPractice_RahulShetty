@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class OAuth2 {
+public class OAuth2_GrantType_ClientCredentials {
 
     @Test
     public void OAuth2AuthorizationTest() {

@@ -22,7 +22,7 @@ public class Deserialization {
                 .formParam("grant_type", "client_credentials")
                 .formParam("scope", "trust")
                 .when().post("oauthapi/oauth2/resourceOwner/token")
-                .then().assertThat().statusCode(200)
+                .then().log().all().assertThat().statusCode(200)
                 .extract().response().asString();
 
         JsonPath js = RawToJSON.getRawDataToJSON(AuthorizationServerResponse);

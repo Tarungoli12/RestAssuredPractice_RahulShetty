@@ -2,6 +2,7 @@ package com.automation.Tests;
 
 import com.automation.Pojo.Serialization.GetLocation;
 import com.automation.Pojo.Serialization.Location;
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
