@@ -1,5 +1,8 @@
 package com.automation.Data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class JsonData {
 
     public static String addPlaceJsonData() {
@@ -102,7 +105,16 @@ public class JsonData {
         return "{\"query\":\"mutation($locationName:String!,$characterName:String!,$episodeName:String!)\\n{\\n  createLocation(location:{name:$locationName,type:\\\"SouthZone\\\",dimension:\\\"111\\\"})\\n  {\\n    id\\n  }\\n  createCharacter(character:{name:$characterName,type:\\\"Positive\\\",status:\\\"Alive\\\",species:\\\"SuperHuman\\\",gender:\\\"Male\\\",image:\\\"Hero.img\\\",originId:33362,locationId:33362}){\\n    id\\n  }\\n  createEpisode(episode:{name:$episodeName,air_date:\\\"June 2026\\\",episode:\\\"01\\\"}){\\n    id\\n  }\\n}\",\"variables\":{\"locationName\":\"" + locationName + "\",\"characterName\":\"" + characterName + "\",\"episodeName\":\"" + episodeName + "\"}}";
     }
 
-    public static String getQueryJsonData(int locationId, int characterId, int episodeId,String characterType) {
-        return "{\"query\":\"query($locationId:Int!,$characterId:Int!,$episodeId:Int!,$charcterType:String!)\\n{\\n  location(locationId: $locationId)\\n  {\\n    name\\n    dimension\\n  }\\n  character(characterId:$characterId){\\n    id\\n    name\\n    type\\n    status\\n    species\\n    gender\\n    image\\n    location\\n    {\\n      id\\n      name\\n      type\\n      dimension\\n    }\\n  }\\n  episode(episodeId:$episodeId){\\n    id\\n    name\\n    air_date\\n    episode\\n    characters{\\n      id\\n      name\\n      type\\n      status\\n      species\\n      gender\\n      image\\n    }\\n    created\\n  }\\n  \\n  characters(filters:{type:$charcterType}){\\n    info{\\n      count\\n      pages\\n      next\\n      prev\\n    }\\n    result{\\n      id\\n      name\\n      type\\n      status\\n      species\\n      gender\\n      image\\n    }\\n  }\\n}\\n\",\"variables\":{\"locationId\":" + locationId + ",\"characterId\":" + characterId + ",\"episodeId\":" + episodeId + ",\"charcterType\":\""+characterType+"\"}}";
+    public static String getQueryJsonData(int locationId, int characterId, int episodeId, String characterType) {
+        return "{\"query\":\"query($locationId:Int!,$characterId:Int!,$episodeId:Int!,$charcterType:String!)\\n{\\n  location(locationId: $locationId)\\n  {\\n    name\\n    dimension\\n  }\\n  character(characterId:$characterId){\\n    id\\n    name\\n    type\\n    status\\n    species\\n    gender\\n    image\\n    location\\n    {\\n      id\\n      name\\n      type\\n      dimension\\n    }\\n  }\\n  episode(episodeId:$episodeId){\\n    id\\n    name\\n    air_date\\n    episode\\n    characters{\\n      id\\n      name\\n      type\\n      status\\n      species\\n      gender\\n      image\\n    }\\n    created\\n  }\\n  \\n  characters(filters:{type:$charcterType}){\\n    info{\\n      count\\n      pages\\n      next\\n      prev\\n    }\\n    result{\\n      id\\n      name\\n      type\\n      status\\n      species\\n      gender\\n      image\\n    }\\n  }\\n}\\n\",\"variables\":{\"locationId\":" + locationId + ",\"characterId\":" + characterId + ",\"episodeId\":" + episodeId + ",\"charcterType\":\"" + characterType + "\"}}";
+    }
+
+    public static Map<String, Object> getDataUsingHashMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name","Learn Appium Automation with Java");
+        map.put("isbn","API");
+        map.put("aisle","1111");
+        map.put("author","Chirag Khimani");
+        return map;
     }
 }
